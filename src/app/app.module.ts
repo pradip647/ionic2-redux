@@ -6,15 +6,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { NgReduxModule } from '@angular-redux/store';
+import { StoreModule } from '../store/all_module';
+import { HttpModule } from '@angular/http';
+import { ListPageModule } from '../pages/list/list.module';
+import { DetailsPageModule } from '../pages/details/details.module';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage
   ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
+  imports: [ListPageModule,DetailsPageModule,
+    BrowserModule,NgReduxModule,StoreModule,HttpModule,
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [

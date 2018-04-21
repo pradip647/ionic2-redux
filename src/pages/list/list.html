@@ -1,0 +1,25 @@
+<!--
+  Generated template for the ListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>list</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+      <ion-list *ngIf="(friends$ | async)?.length>0">
+          <ion-item *ngFor="let friend of friends$ | async" (click)="gotoDetails(friend)" no-lines>
+            {{friend.name}}
+          </ion-item>
+        </ion-list>
+        <ion-spinner *ngIf="loading$ | async" name="bubbles"></ion-spinner>
+  </ion-grid>
+</ion-content>
